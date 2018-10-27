@@ -68,7 +68,7 @@ public class NerdPushbotTank_Iterative extends OpMode{
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.addData("Say", "Hello Jonah! o/");    //
     }
 
     /*
@@ -92,7 +92,6 @@ public class NerdPushbotTank_Iterative extends OpMode{
     public void loop() {
         double left;
         double right;
-
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
@@ -100,6 +99,14 @@ public class NerdPushbotTank_Iterative extends OpMode{
         robot.leftDrive.setPower(left);
         robot.rightDrive.setPower(right);
 
+
+
+        if (gamepad1.left_bumper)
+            robot.liftMotor.setPower(robot.ARM_UP_POWER);
+        else if (gamepad1.right_bumper)
+            robot.liftMotor.setPower(robot.ARM_DOWN_POWER);
+        else
+            robot.liftMotor.setPower(0.0);
 
 
 
