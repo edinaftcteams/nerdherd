@@ -101,14 +101,19 @@ public class NerdPushbotTank_Iterative extends OpMode{
 
 
 
+        if (gamepad2.left_bumper)
+            robot.liftMotor.setPower(robot.ARM_UP_POWER);
+        else if (gamepad2.right_bumper)
+            robot.liftMotor.setPower(robot.ARM_DOWN_POWER);
+        else
+            robot.liftMotor.setPower(0.0);
+
         if (gamepad1.left_bumper)
             robot.liftMotor.setPower(robot.ARM_UP_POWER);
         else if (gamepad1.right_bumper)
             robot.liftMotor.setPower(robot.ARM_DOWN_POWER);
         else
             robot.liftMotor.setPower(0.0);
-
-
 
 
 
