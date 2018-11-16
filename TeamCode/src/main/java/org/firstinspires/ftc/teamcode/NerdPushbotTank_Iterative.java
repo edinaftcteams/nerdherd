@@ -93,25 +93,38 @@ public class NerdPushbotTank_Iterative extends OpMode{
         double left;
         double right;
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
+        left = -gamepad1.right_stick_y;
+        right = -gamepad1.left_stick_y;
 
         robot.leftDrive.setPower(left);
         robot.rightDrive.setPower(right);
 
 
 
-        if (gamepad2.left_bumper)
+        if (gamepad2.y)
             robot.liftMotor.setPower(robot.ARM_UP_POWER);
-        else if (gamepad2.right_bumper)
+        else if (gamepad2.x)
             robot.liftMotor.setPower(robot.ARM_DOWN_POWER);
         else
             robot.liftMotor.setPower(0.0);
 
-        if (gamepad1.left_bumper)
+        if (gamepad1.y)
             robot.liftMotor.setPower(robot.ARM_UP_POWER);
-        else if (gamepad1.right_bumper)
+        else if (gamepad1.x)
             robot.liftMotor.setPower(robot.ARM_DOWN_POWER);
+        else
+            robot.liftMotor.setPower(0.0);
+        if (gamepad2.a)
+            robot.liftMotor.setPower(robot.ARM_FASTER_UP_POWER);
+        else if (gamepad2.b)
+            robot.liftMotor.setPower(robot.ARM_FASTER_DOWN_POWER);
+        else
+            robot.liftMotor.setPower(0.0);
+
+        if (gamepad1.a)
+            robot.liftMotor.setPower(robot.ARM_FASTER_UP_POWER);
+        else if (gamepad1.b)
+            robot.liftMotor.setPower(robot.ARM_FASTER_DOWN_POWER);
         else
             robot.liftMotor.setPower(0.0);
 

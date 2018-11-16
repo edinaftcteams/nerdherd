@@ -55,10 +55,14 @@ public class NerdHardwarePushbot
     public DcMotor  leftDrive   = null;
     public DcMotor  rightDrive  = null;
     public DcMotor  liftMotor   = null;
+
     public static final double ARM_UP_POWER    =  0.45 ;
     public static final double ARM_DOWN_POWER  = -0.45 ;
+    public static final double ARM_FASTER_UP_POWER    =  0.65 ;
+    public static final double ARM_FASTER_DOWN_POWER  = -0.65 ;
+
     /* local OpMode members. */
-    HardwareMap hwMap           =  null;
+   public HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();
 
     /* Constructor */
@@ -67,7 +71,7 @@ public class NerdHardwarePushbot
     }
 
     /* Initialize standard Hardware interfaces */
-    public void init(HardwareMap ahwMap) {
+     void init(HardwareMap ahwMap) {
         // Save reference to Hardware map
         hwMap = ahwMap;
 
