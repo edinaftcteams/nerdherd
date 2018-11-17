@@ -56,10 +56,10 @@ public class NerdHardwarePushbot
     public DcMotor  rightDrive  = null;
     public DcMotor  liftMotor   = null;
 
-    public static final double ARM_UP_POWER    =  0.45 ;
-    public static final double ARM_DOWN_POWER  = -0.45 ;
-    public static final double ARM_FASTER_UP_POWER    =  0.65 ;
-    public static final double ARM_FASTER_DOWN_POWER  = -0.65 ;
+    public static final double ARM_UP_POWER    =  0.65 ;
+    public static final double ARM_DOWN_POWER  = -0.65 ;
+    public static final double ARM_FASTER_UP_POWER    =  0.85 ;
+    public static final double ARM_FASTER_DOWN_POWER  = -0.85 ;
 
     /* local OpMode members. */
    public HardwareMap hwMap           =  null;

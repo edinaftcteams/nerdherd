@@ -1,4 +1,4 @@
-/* Copyright (c) 2017 FIRST. All rights reserved.
+package org.firstinspires.ftc.teamcode;/* Copyright (c) 2017 FIRST. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted (subject to the limitations in the disclaimer below) provided that
@@ -28,7 +28,6 @@
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -39,34 +38,33 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * This file illustrates the concept of driving a path based on time.
  * It uses the common Pushbot hardware class to define the drive on the robot.
  * The code is structured as a LinearOpMode
- *
+ * <p>
  * The code assumes that you do NOT have encoders on the wheels,
- *   otherwise you would use: PushbotAutoDriveByEncoder;
- *
- *   The desired path in this example is:
- *   - Drive forward for 3 seconds
- *   - Spin right for 1.3 seconds
- *   - Drive Backwards for 1 Second
- *   - Stop and close the claw.
- *
- *  The code is written in a simple form with no optimizations.
- *  However, there are several ways that this type of sequence could be streamlined,
- *
+ * otherwise you would use: PushbotAutoDriveByEncoder;
+ * <p>
+ * The desired path in this example is:
+ * - Drive forward for 3 seconds
+ * - Spin right for 1.3 seconds
+ * - Drive Backwards for 1 Second
+ * - Stop and close the claw.
+ * <p>
+ * The code is written in a simple form with no optimizations.
+ * However, there are several ways that this type of sequence could be streamlined,
+ * <p>
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Auto Drive By Time", group="Pushbot")
-//@Disabled
-public class   Hello extends LinearOpMode {
+@Autonomous(name = "Test", group = "testing")
+
+public class Testing extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
-    private DcMotor leftMotor = null;
     private DcMotor rightMotor = null;
     private DcMotor liftMotor = null;
-
+    private DcMotor leftMotor = null;
 
     static final double FORWARD_SPEED = 0.6;
     static final double TURN_SPEED = 0.5;
@@ -94,12 +92,8 @@ public class   Hello extends LinearOpMode {
         waitForStart();
         if (opModeIsActive()) {
             liftMotor.setPower(20);
-            sleep(2000);     // wait for two seconds
-            leftMotor.setPower(-20);
-            rightMotor.setPower(-20);
-            sleep(2000);
-            liftMotor.setPower(-20);
-            sleep(2000);
+            sleep(4000);     // wait for two seconds
+
 
             // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
