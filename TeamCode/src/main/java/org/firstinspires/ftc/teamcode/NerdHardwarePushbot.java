@@ -55,7 +55,9 @@ public class NerdHardwarePushbot
     public DcMotor  leftDrive   = null;
     public DcMotor  rightDrive  = null;
     public DcMotor  liftMotor   = null;
+    public Servo    servo_x    = null;
 
+    public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.65 ;
     public static final double ARM_DOWN_POWER  = -0.65 ;
     public static final double ARM_FASTER_UP_POWER    =  0.85 ;
@@ -93,7 +95,8 @@ public class NerdHardwarePushbot
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         // Define and initialize ALL installed servos.
-
+         servo_x = hwMap.get(Servo.class, "servo_x");
+         servo_x.setPosition(MID_SERVO);
     }
 }
 

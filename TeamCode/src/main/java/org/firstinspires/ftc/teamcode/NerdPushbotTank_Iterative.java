@@ -56,7 +56,7 @@ public class NerdPushbotTank_Iterative extends OpMode{
     /* Declare OpMode members. */
     NerdHardwarePushbot robot       = new NerdHardwarePushbot(); // use the class created to define a Pushbot's hardware
 
-
+    double tgtPower = 0;
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -101,19 +101,7 @@ public class NerdPushbotTank_Iterative extends OpMode{
 
 
 
-        if (gamepad2.y)
-            robot.liftMotor.setPower(robot.ARM_UP_POWER);
-        else if (gamepad2.x)
-            robot.liftMotor.setPower(robot.ARM_DOWN_POWER);
-        else
-            robot.liftMotor.setPower(0.0);
 
-        if (gamepad1.y)
-            robot.liftMotor.setPower(robot.ARM_UP_POWER);
-        else if (gamepad1.x)
-            robot.liftMotor.setPower(robot.ARM_DOWN_POWER);
-        else
-            robot.liftMotor.setPower(0.0);
         if (gamepad2.a)
             robot.liftMotor.setPower(robot.ARM_FASTER_UP_POWER);
         else if (gamepad2.b)
@@ -129,8 +117,28 @@ public class NerdPushbotTank_Iterative extends OpMode{
             robot.liftMotor.setPower(0.0);
 
 
+        tgtPower = -this.gamepad1.left_stick_y;
+        // check to see if we need to move the servo.
+        if(gamepad1.y) {
+            // move to 0 degrees.
+            robot.servo_x.setPosition(0);
+        } else if (gamepad1.x ) {
+            // move to 90 degrees.
+            robot.servo_x.setPosition(0.5);
+            // move to 180 degrees.
+            robot.servo_x.setPosition(1);
+        }
+        telemetry.addData("Servo Position", robot.servo_x.getPosition());
+        telemetry.addData("Target Power", tgtPower);
+        telemetry.addData("Status", "Running");
+        telemetry.update();
 
     }
+
+
+
+
+
 
     /*
      * Code to run ONCE after the driver hits STOP
