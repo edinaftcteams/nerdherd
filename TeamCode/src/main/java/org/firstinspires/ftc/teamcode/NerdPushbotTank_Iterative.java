@@ -100,50 +100,54 @@ public class NerdPushbotTank_Iterative extends OpMode{
         robot.rightDrive.setPower(right);
 
 
-
-
         if (gamepad2.a)
             robot.liftMotor.setPower(robot.ARM_FASTER_UP_POWER);
-        else if (gamepad2.b)
+        else if (gamepad2.y)
             robot.liftMotor.setPower(robot.ARM_FASTER_DOWN_POWER);
         else
             robot.liftMotor.setPower(0.0);
 
         if (gamepad1.a)
             robot.liftMotor.setPower(robot.ARM_FASTER_UP_POWER);
-        else if (gamepad1.b)
+        else if (gamepad1.y)
             robot.liftMotor.setPower(robot.ARM_FASTER_DOWN_POWER);
         else
             robot.liftMotor.setPower(0.0);
 
 
-        tgtPower = -this.gamepad1.left_stick_y;
+        tgtPower = -this.gamepad2.left_stick_y;
         // check to see if we need to move the servo.
-        if(gamepad1.y) {
+        if (gamepad2.b) {
             // move to 0 degrees.
             robot.servo_x.setPosition(0);
-        } else if (gamepad1.x ) {
+        } else if (gamepad2.x) {
             // move to 90 degrees.
             robot.servo_x.setPosition(0.5);
             // move to 180 degrees.
             robot.servo_x.setPosition(1);
+            tgtPower = -this.gamepad2.left_stick_y;
+            // check to see if we need to move the servo.
+            if (gamepad2.b) {
+                // move to 0 degrees.
+                robot.servo_x.setPosition(0);
+            } else if (gamepad2.x) {
+                // move to 90 degrees.
+                robot.servo_x.setPosition(0.5);
+                // move to 180 degrees.
+                robot.servo_x.setPosition(1);
+            }
+            telemetry.addData("Servo Position", robot.servo_x.getPosition());
+            telemetry.addData("Target Power", tgtPower);
+            telemetry.addData("Status", "Running");
+            telemetry.update();
+
         }
-        telemetry.addData("Servo Position", robot.servo_x.getPosition());
-        telemetry.addData("Target Power", tgtPower);
-        telemetry.addData("Status", "Running");
-        telemetry.update();
-
-    }
 
 
-
-
+    }}
 
 
     /*
      * Code to run ONCE after the driver hits STOP
      */
-    @Override
-    public void stop() {
-    }
-}
+

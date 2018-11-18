@@ -1,15 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-@Autonomous(name = "Autonomous", group = "Pushbot")
+@Autonomous(name = "Other Autonomous", group = "Pushbot")
 //@Disabled
-public class NerdAutonomous extends LinearOpMode {
+public class OtherNerdAutonomous extends LinearOpMode {
     private DcMotor leftMotor = null;
     private DcMotor rightMotor = null;
     private DcMotor liftMotor = null;
@@ -31,11 +30,9 @@ public class NerdAutonomous extends LinearOpMode {
             liftMotor.setPower(0);
             rightMotor.setPower(-25);
             leftMotor.setPower(-25);
-            sleep(3500);
+            sleep(500);
             rightMotor.setPower(0);
-            leftMotor.setPower(-25);
-            sleep(1000);
-            rightMotor.setPower(0);
+            leftMotor.setPower(0);
             liftMotor.setPower(20);
             sleep(4000);
             liftMotor.setPower(0);
