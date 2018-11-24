@@ -56,7 +56,7 @@ public class NerdPushbotTank_Iterative extends OpMode{
     /* Declare OpMode members. */
     NerdHardwarePushbot robot       = new NerdHardwarePushbot(); // use the class created to define a Pushbot's hardware
 
-    double tgtPower = 0;
+    double tgtPower = 1;
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -115,16 +115,18 @@ public class NerdPushbotTank_Iterative extends OpMode{
             robot.liftMotor.setPower(0.0);
 
 
-        tgtPower = -this.gamepad2.left_stick_y;
+        tgtPower = -this.gamepad1.left_stick_y;
         // check to see if we need to move the servo.
-        if (gamepad2.b) {
+        if (gamepad1.b) {
             // move to 0 degrees.
             robot.servo_x.setPosition(0);
-        } else if (gamepad2.x) {
+        } else if (gamepad1.x) {
             // move to 90 degrees.
             robot.servo_x.setPosition(0.5);
             // move to 180 degrees.
             robot.servo_x.setPosition(1);
+
+
             tgtPower = -this.gamepad2.left_stick_y;
             // check to see if we need to move the servo.
             if (gamepad2.b) {

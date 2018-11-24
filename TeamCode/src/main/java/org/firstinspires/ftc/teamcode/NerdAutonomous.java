@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-@Autonomous(name = "Autonomous", group = "Pushbot")
+@Autonomous(name = "RedAutonomous", group = "Pushbot")
 //@Disabled
 public class NerdAutonomous extends LinearOpMode {
     private DcMotor leftMotor = null;
@@ -35,12 +35,20 @@ public class NerdAutonomous extends LinearOpMode {
             rightMotor.setPower(0);
             leftMotor.setPower(-25);
             sleep(1000);
+            leftMotor.setPower(0);
             rightMotor.setPower(0);
             liftMotor.setPower(20);
             sleep(4000);
             liftMotor.setPower(0);
             servo_x.setPosition(0);
             sleep(10);
+            leftMotor.setPower(25);
+            rightMotor.setPower(25);
+            sleep(750);
+            servo_x.setPosition(0);
+            leftMotor.setPower(0);
+            rightMotor.setPower(0);
+            servo_x.setPosition(0);
         }
     }
 }
